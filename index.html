@@ -1,0 +1,212 @@
+<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>قارچ نگین الوند</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f2ec;--c:#fff;--t:#1d2822;--m:#68726b;--p:#2c7a4b;--b:#d9d5c8;--r:#c0392b;--h:#ebe8dd;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141a16;--c:#1e2621;--t:#e8ede9;--m:#94a09a;--p:#4fb37a;--b:#333f38;--r:#ef7a6c;--h:#28322c}}
+:root[data-theme=dark]{--bg:#141a16;--c:#1e2621;--t:#e8ede9;--m:#94a09a;--p:#4fb37a;--b:#333f38;--r:#ef7a6c;--h:#28322c}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--t);font:14px/1.7 Vazirmatn,Tahoma,sans-serif}
+#app{max-width:900px;margin:auto;padding:8px}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:6px 0;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5}
+.tabs button{white-space:nowrap;background:var(--c);color:var(--t);border:1px solid var(--b);border-radius:20px;padding:6px 14px;font:inherit}
+.tabs button.on,button.p{background:var(--p);color:#fff;border-color:var(--p)}
+.card{background:var(--c);border:1px solid var(--b);border-radius:12px;padding:12px;margin:8px 0}
+h3{margin:0 0 8px;font-size:15px}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+label{display:block;font-size:12px;color:var(--m)}
+input,select,textarea{width:100%;padding:7px;border:1px solid var(--b);border-radius:8px;background:var(--bg);color:var(--t);font:inherit}
+button{font:inherit;border-radius:8px;border:1px solid var(--b);padding:7px 14px;background:var(--c);color:var(--t);margin-top:8px}
+.hg{display:grid;grid-template-columns:repeat(auto-fill,minmax(105px,1fr));gap:6px;margin:6px 0}
+.ck{display:flex;gap:4px;align-items:center;color:var(--t)}.ck input{width:auto}
+.w{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:12px}
+th,td{border-bottom:1px solid var(--b);padding:5px 6px;text-align:right;white-space:nowrap}th{background:var(--h)}
+.m{color:var(--m);font-size:12px;margin:6px 0}.x{color:var(--r);padding:0 8px;margin:0;border:0;background:none}
+.pos{color:var(--p)}.neg{color:var(--r)}
+.hd{background:linear-gradient(135deg,#0f3b27,#2c7a4b);color:#fff;border-radius:16px;padding:16px 20px;margin:6px 0 2px;display:flex;align-items:center;gap:14px;box-shadow:0 6px 18px rgba(15,59,39,.25)}
+.hd i{font-size:36px;font-style:normal}.hd b{display:block;font-size:22px}.hd small{opacity:.85;font-size:12px}
+.tabs{padding:8px 0}.tabs button{border-radius:12px;font-weight:700;padding:8px 16px}
+.card{border-radius:14px;padding:16px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+h3{font-size:16px;border-inline-start:4px solid var(--p);padding-inline-start:8px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:8px 0}
+.tile{background:var(--c);border:1px solid var(--b);border-radius:14px;padding:12px 14px}.tile span{display:block;color:var(--m);font-size:12px}.tile b{font-size:20px}
+tr:nth-child(even) td{background:color-mix(in srgb,var(--h) 45%,transparent)}
+input:focus,select:focus{outline:2px solid var(--p);outline-offset:-1px}
+.row{display:flex;gap:8px;margin-bottom:8px}.row button{margin:0;white-space:nowrap}.x{font-size:16px}
+.ts{position:fixed;top:calc(env(safe-area-inset-top,0px) + 8px);left:50%;transform:translateX(-50%);background:#123f2a;color:#fff;padding:10px 18px;border-radius:12px;z-index:50;opacity:0;pointer-events:none;transition:.2s;max-width:90%;text-align:center}.ts.on{opacity:1}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;z-index:60;padding:16px}.bx{background:var(--c);color:var(--t);border-radius:14px;padding:18px;width:100%;max-width:380px}.bx p{margin:0 0 10px}.bx .row{margin:12px 0 0}
+</style></head><body><div id="app"></div>
+<script>
+const $=s=>document.querySelector(s),H=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const D=s=>String(s).replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+const nd=s=>{const a=D(s).trim().replace(/[-.]/g,'/').split('/');return a.length==3?a[0]+'/'+a[1].padStart(2,0)+'/'+a[2].padStart(2,0):D(s).trim()};
+const today=()=>{try{return nd(new Date().toLocaleDateString('fa-IR-u-nu-latn'))}catch(e){return''}};
+const n=v=>+D(v).replace(/[,٬]/g,'')||0,fm=v=>(Math.round(v*100)/100).toLocaleString('en-US');
+const id=()=>Date.now()*1000+Math.floor(Math.random()*1000);
+const K='mushroom-ledger-v1';
+let S={halls:Array.from({length:16},(_,i)=>({id:'h'+(i+1),name:'سالن '+(i+1)})),buys:[],sales:[],picks:[],pays:[],ts:0};
+try{const o=JSON.parse(localStorage.getItem(K)||'null');if(o&&o.sales)S=o}catch(e){}
+mig();
+let E=null,dbr=null,tm=0,tab='home',rep='sum',R={f:'',t:'',p:'',h:'',pk:''};
+function save(){S.ts=Date.now();try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}clearTimeout(tm);tm=setTimeout(()=>{if(dbr)dbr.set({json:JSON.stringify(S)}).catch(()=>{})},700)}
+async function init(){try{const c=await window.claude?.use('db');if(c){dbr=c.doc('ledger/main');const s=await dbr.get();if(s.exists){const o=JSON.parse(s.data().json);if(o&&o.sales&&(o.ts||0)>=(S.ts||0)){S=o;mig();try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}render()}else if(o&&(S.ts||0)>(o.ts||0))save()}else save()}}catch(e){}}
+const hn=i=>S.halls.find(h=>h.id==i)?.name||'';
+const names=()=>[...new Set([...S.defs.sup,...S.defs.cus,...S.defs.pk,...S.buys.map(x=>x.pa),...S.sales.map(x=>x.pa),...S.pays.map(x=>x.pa),...S.picks.map(x=>x.pk)].filter(Boolean))].sort();
+const F=(l,h)=>`<label>${l}${h}</label>`;
+const tr=a=>'<tr>'+a.map(c=>`<td>${c}</td>`).join('')+'</tr>';
+const tb=(h,r)=>`<div class=w><table><tr>${h.map(x=>`<th>${x}</th>`).join('')}</tr>${r.join('')}</table></div>`;
+const del=(a,i)=>ask('این ثبت حذف شود؟',()=>{S[a]=S[a].filter(x=>x.id!=i);save();render()});
+const X=(a,i)=>`<button class=x onclick="ed('${a}',${i})">✎</button><button class=x onclick="del('${a}',${i})">✕</button>`;
+const PL=()=>`<datalist id=pl>${names().map(x=>`<option value="${H(x)}">`).join('')}</datalist>`;
+const PT=()=>F('نوع پرداخت',`<select id=ty><option value=cash>نقد</option><option value=credit>نسیه</option><option value=cheque>چک</option></select>`)+F('تاریخ چک',`<input id=cd placeholder="1405/07/20">`)+F('مبلغ پرداخت‌شده / مبلغ چک (چک: خالی = کل مبلغ)',`<input id=pd inputmode=decimal>`);
+const PY=t=>{const ty=$('#ty').value;return{ty,cd:nd($('#cd').value),paid:ty=='cash'?t:ty=='credit'?n($('#pd').value):($('#pd').value?n($('#pd').value):t)}};
+const KL={c:'کمپوست',o:'خرید',e:'هزینه'},TL={cash:'نقد',credit:'نسیه',cheque:'چک'};
+const T={home:'📊 داشبورد',buy:'🧾 خرید و هزینه',sale:'🍄 فروش',pick:'🧺 قارچ‌چین‌ها',pay:'💰 دریافت/پرداخت',bal:'⚖️ مانده حساب',rep:'📑 گزارش‌ها',def:'👥 تعریف‌ها',bk:'💾 پشتیبان'};
+const V={},RV={};
+function render(){$('#app').innerHTML=`<div class=hd><i>🍄</i><div><b>قارچ نگین الوند</b><small>برنامه‌نویس: مهدی بهرامی</small></div></div><div class=tabs>${Object.keys(T).map(k=>`<button class="${k==tab?'on':''}" onclick="tab='${k}';E=null;render()">${T[k]}</button>`).join('')}</div>`+V[tab]();fill()}
+
+V.buy=()=>`<div class=card oninput=prev()><h3>ثبت خرید / هزینه</h3><div class=g>
+${F('تاریخ',`<input id=d value="${today()}">`)}
+${F('کالا / خدمت',PS('it','item'))}
+${F('تامین‌کننده',PS('pa','sup'))}${F('توضیح (اختیاری)',`<input id=ds>`)}
+${F('تعداد یا وزن کل',`<input id=qt inputmode=decimal>`)}${F('قیمت هر واحد (هر کیلو / هر عدد)',`<input id=pr inputmode=decimal>`)}${PT()}</div>
+<p class=m>سالن‌های مربوطه را تیک بزنید؛ مقدار کل مساوی بینشان تقسیم و مبلغ هر سالن خودکار حساب می‌شود. اگر سهم یک سالن متفاوت است، همان‌جا مقدارش را بنویسید (باقی بین بقیه تقسیم می‌شود).</p>
+<div class=hg>${S.halls.map((h,i)=>`<div><label class=ck><input type=checkbox id=hc${i}>${h.name}</label><input id=hk${i} inputmode=decimal placeholder="سهم (اختیاری)"></div>`).join('')}</div>
+<div id=pv class=m></div>${SB('addBuy')}</div>${PL()}
+<div class=card><h3>آخرین ثبت‌ها</h3>${tb(['تاریخ','نوع','طرف','شرح','کیلو','مبلغ','پرداخت','سالن‌ها',''],S.buys.slice().reverse().slice(0,40).map(b=>tr([b.d,H(b.it)||KL[b.k],H(b.pa),H(b.ds),b.qt||b.kg?fm(b.qt||b.kg):'',fm(b.tot),TL[b.ty]+(b.cd?' '+b.cd:''),Object.keys(b.al).map(hn).join('، '),X('buys',b.id)])))}</div>`;
+function spl(){const k=S.cmp.includes($('#it').value)?'c':'o',pr=n($('#pr').value),qt=n($('#qt').value)||(k=='c'?0:1);
+const hs=S.halls.map((h,i)=>({h,f:n($('#hk'+i).value),c:$('#hc'+i).checked})).filter(x=>x.c||x.f>0);
+const fx=hs.filter(x=>x.f>0),fr=hs.filter(x=>!(x.f>0)),left=qt-fx.reduce((s,x)=>s+x.f,0),al={};
+if(!qt||!pr||!hs.length)return{e:'تعداد/وزن، قیمت و سالن‌ها را مشخص کنید'};
+if(left<-1e-6||(!fr.length&&Math.abs(left)>1e-6))return{e:'جمع مقدار سالن‌ها با مقدار کل خرید نمی‌خواند'};
+hs.forEach(x=>{const q=x.f>0?x.f:left/fr.length;al[x.h.id]={kg:q,cost:q*pr}});return{k,qt,pr,al,tot:qt*pr}}
+function prev(){const r=spl(),e=$('#pv');if(!e)return;e.innerHTML=r.e?'':`مبلغ کل: <b>${fm(r.tot)}</b> — سهم هر سالن: `+Object.keys(r.al).map(i=>`${hn(i)}: ${fm(r.al[i].kg)} ← ${fm(r.al[i].cost)}`).join('، ')}
+function addBuy(){const r=spl();if(r.e)return toast(r.e);const pa=$('#pa').value.trim();if(!$('#it').value)return toast('کالا یا خدمت را انتخاب کنید');if(!pa&&$('#ty').value!='cash')return toast('برای نسیه یا چک، تامین‌کننده را انتخاب کنید');
+put('buys',{id:id(),d:nd($('#d').value)||today(),k:r.k,it:$('#it').value,pa,ds:$('#ds').value,kg:r.k=='c'?r.qt:0,qt:r.qt,pr:r.pr,tot:r.tot,al:r.al,...PY(r.tot)});save();render()}
+
+V.sale=()=>`<div class=card><h3>ثبت فروش قارچ</h3><div class=g>
+${F('تاریخ',`<input id=d value="${today()}">`)}
+${F('سالن',`<select id=h>${S.halls.map(h=>`<option value=${h.id}>${h.name}</option>`).join('')}</select>`)}
+${F('نوع قارچ',`<select id=g><option value=1>درجه ۱</option><option value=2>درجه ۲</option></select>`)}
+${F('خریدار',PS('pa','cus'))}${F('وزن (کیلو)',`<input id=kg inputmode=decimal>`)}${F('قیمت هر کیلو',`<input id=pr inputmode=decimal>`)}${PT()}</div>
+${SB('addSale')}</div>${PL()}
+<div class=card><h3>آخرین فروش‌ها</h3>${tb(['تاریخ','سالن','درجه','خریدار','کیلو','قیمت','مبلغ','پرداخت',''],S.sales.slice().reverse().slice(0,40).map(x=>tr([x.d,hn(x.h),x.g,H(x.pa),fm(x.kg),fm(x.pr),fm(x.tot),TL[x.ty]+(x.cd?' '+x.cd:''),X('sales',x.id)])))}</div>`;
+function addSale(){const kg=n($('#kg').value),pr=n($('#pr').value),pa=$('#pa').value.trim();if(!kg||!pa)return toast('خریدار و وزن را بنویسید');
+put('sales',{id:id(),d:nd($('#d').value)||today(),h:$('#h').value,g:+$('#g').value,pa,kg,pr,tot:kg*pr,...PY(kg*pr)});save();render()}
+
+V.pick=()=>`<div class=card><h3>ثبت قارچ چیده‌شده (روزانه)</h3><div class=g>
+${F('تاریخ',`<input id=d value="${today()}">`)}${F('قارچ‌چین',PS('pk','pk'))}
+${F('سالن',`<select id=h>${S.halls.map(h=>`<option value=${h.id}>${h.name}</option>`).join('')}</select>`)}
+${F('وزن چیده‌شده (کیلو)',`<input id=kg inputmode=decimal>`)}${F('مبلغ هر کیلو',`<input id=rt inputmode=decimal>`)}</div>
+${SB('addPick')}</div>${PL()}
+<div class=card><h3>آخرین ثبت‌ها</h3>${tb(['تاریخ','قارچ‌چین','سالن','کیلو','نرخ','مبلغ',''],S.picks.slice().reverse().slice(0,40).map(x=>tr([x.d,H(x.pk),hn(x.h),fm(x.kg),fm(x.rt),fm(x.tot),X('picks',x.id)])))}</div>`;
+function addPick(){const kg=n($('#kg').value),rt=n($('#rt').value),pk=$('#pk').value.trim();if(!kg||!pk)return toast('نام و وزن را بنویسید');
+put('picks',{id:id(),d:nd($('#d').value)||today(),pk,h:$('#h').value,kg,rt,tot:kg*rt});save();render()}
+
+V.pay=()=>`<div class=card><h3>دریافت / پرداخت</h3><div class=g>
+${F('تاریخ',`<input id=d value="${today()}">`)}${F('نوع',`<select id=dr><option value=in>دریافت از خریدار</option><option value=out>پرداخت به تامین‌کننده / قارچ‌چین</option></select>`)}
+${F('طرف حساب',PS('pa','all'))}${F('مبلغ',`<input id=am inputmode=decimal>`)}${F('توضیح (شماره چک…)',`<input id=nt>`)}</div>
+${SB('addPay')}</div>${PL()}
+<div class=card>${tb(['تاریخ','نوع','طرف','مبلغ','توضیح',''],S.pays.slice().reverse().slice(0,40).map(x=>tr([x.d,x.dr=='in'?'دریافت':'پرداخت',H(x.pa),fm(x.am),H(x.nt),X('pays',x.id)])))}</div>`;
+function addPay(){const am=n($('#am').value),pa=$('#pa').value.trim();if(!am||!pa)return toast('طرف حساب و مبلغ را بنویسید');
+put('pays',{id:id(),d:nd($('#d').value)||today(),dr:$('#dr').value,pa,am,nt:$('#nt').value});save();render()}
+
+// دفتر حساب: dl مثبت = طلب من (او بدهکار من است)، منفی = بدهی من
+function led(nm,from,to){const r=[];
+S.sales.filter(x=>x.pa==nm).forEach(x=>r.push({ty:x.ty,cd:x.cd,d:x.d,t:'فروش',ds:hn(x.h)+' درجه '+x.g+(x.cd?' (چک '+x.cd+')':''),kg:x.kg,tot:x.tot,paid:x.paid,dl:x.tot-x.paid}));
+S.buys.filter(x=>x.pa==nm).forEach(x=>r.push({ty:x.ty,cd:x.cd,d:x.d,t:'خرید',ds:x.ds+(x.cd?' (چک '+x.cd+')':''),kg:x.kg,tot:x.tot,paid:x.paid,dl:x.paid-x.tot}));
+S.picks.filter(x=>x.pk==nm).forEach(x=>r.push({d:x.d,t:'مزد چیدن',ds:hn(x.h)+' '+fm(x.kg)+' کیلو',kg:0,tot:x.tot,paid:0,dl:-x.tot}));
+S.pays.filter(x=>x.pa==nm).forEach(x=>r.push({d:x.d,t:x.dr=='in'?'دریافت':'پرداخت',ds:x.nt,kg:0,tot:x.am,paid:0,dl:x.dr=='in'?-x.am:x.am}));
+r.sort((a,b)=>a.d<b.d?-1:a.d>b.d?1:0);let open=0;const rr=[];
+r.forEach(x=>{if(from&&x.d<from)open+=x.dl;else if(!to||x.d<=to)rr.push(x)});return{open,rr}}
+const net=nm=>led(nm,'','').rr.reduce((s,x)=>s+x.dl,0);
+const sg=v=>`<span class="${v>0?'pos':v<0?'neg':''}">${fm(v)}</span>`;
+
+const B={m:'cred',p:'',nz:0};
+const role=nm=>[S.defs.sup.includes(nm)&&'تامین‌کننده',S.defs.cus.includes(nm)&&'خریدار',S.defs.pk.includes(nm)&&'قارچ‌چین'].filter(Boolean).join(' / ')||'—';
+const stt=v=>v>.5?'<span class=pos>بدهکار به من</span>':v<-.5?'<span class=neg>من بدهکارم</span>':'تسویه';
+const CH=()=>{const ch=[...S.sales.filter(x=>x.ty=='cheque').map(x=>['دریافتی',x.cd,x.pa,x.tot]),...S.buys.filter(x=>x.ty=='cheque').map(x=>['پرداختی',x.cd,x.pa,x.tot])].sort((a,b)=>a[1]<b[1]?-1:1);
+return`<div class=card><h3>چک‌ها (به ترتیب تاریخ)</h3>${tb(['نوع','تاریخ چک','طرف','مبلغ'],ch.map(x=>tr([x[0],x[1],H(x[2]),fm(x[3])])))}<p class=m>چک به‌محض ثبت از بدهی/طلب کم می‌شود و این لیست فقط برای یادآوری تاریخ‌هاست.</p></div>`};
+function ST(nm,f,t){if(!nm)return'<div class=card><p class=m>یک نفر را انتخاب کنید.</p></div>';
+const l=led(nm,f,t),rows=[];
+l.rr.forEach(x=>{if(x.t=='فروش'||x.t=='خرید'){const q=x.t=='فروش'?1:-1;rows.push({...x,dl:q*x.tot});
+if(x.paid)rows.push({d:x.d,t:q>0?'دریافت هنگام فروش':'پرداخت هنگام خرید',ds:x.ty=='cheque'?'چک '+x.cd:x.ty=='cash'?'نقدی':'بخشی نقد',kg:0,dl:-q*x.paid})}else rows.push(x)});
+let run=l.open,sl=0,by=0,rc=0,py=0,wg=0;
+const body=rows.map(x=>{run+=x.dl;const q=x.t;if(q=='فروش')sl+=x.tot;else if(q=='خرید')by+=x.tot;else if(q=='مزد چیدن')wg+=x.tot;else if(q.startsWith('دریافت'))rc-=x.dl;else py+=x.dl;return tr([x.d,q,H(x.ds),x.kg?fm(x.kg):'',sg(x.dl),sg(run)])});
+const tl=[['وضعیت',stt(run)],['مانده',fm(Math.abs(run))],['جمع فروش به او',fm(sl)],['جمع خرید از او',fm(by)],['جمع دریافتی',fm(rc)],['جمع پرداختی',fm(py)]];if(wg)tl.push(['جمع مزد چیدن',fm(wg)]);
+return`<div class=tiles>${tl.map(x=>`<div class=tile><span>${x[0]}</span><b>${x[1]}</b></div>`).join('')}</div><div class=card><h3>ریز صورت‌حساب: ${H(nm)}</h3>${tb(['تاریخ','عملیات','شرح','کیلو','مبلغ','مانده'],[...(f?[tr(['','مانده قبل','','','',sg(l.open)])]:[]),...body])}<p class=m>مثبت (سبز): او به من بدهکار است. منفی (قرمز): من به او بدهکارم.</p></div>`}
+V.bal=()=>{const all=names().map(x=>[x,net(x)]);
+const ctl=`<div class=card><div class=g>${F('نمایش',`<select onchange="B.m=this.value;render()">${[['cred','بستانکاران (کسانی که من به آن‌ها بدهکارم)'],['debt','بدهکاران (کسانی که به من بدهکارند)'],['all','همه'],['one','یک نفر']].map(([v,l])=>`<option value="${v}" ${B.m==v?'selected':''}>${l}</option>`).join('')}</select>`)}
+${B.m=='one'?F('نام',`<select onchange="B.p=this.value;render()"><option value="">— انتخاب —</option>${names().map(x=>`<option ${x==B.p?'selected':''}>${H(x)}</option>`).join('')}</select>`)+F('از تاریخ',`<input value="${R.f}" placeholder="1405/07/01" onchange="R.f=nd(this.value);render()">`)+F('تا تاریخ',`<input value="${R.t}" onchange="R.t=nd(this.value);render()">`):`<label class=ck style="padding-top:18px"><input type=checkbox ${B.nz?'checked':''} onchange="B.nz=this.checked;render()">فقط دارای مانده (صفرها مخفی)</label>`}</div></div>`;
+if(B.m=='one')return ctl+ST(B.p,R.f,R.t);
+let L=B.m=='cred'?all.filter(([n,v])=>S.defs.sup.includes(n)||S.defs.pk.includes(n)||v<-.5):B.m=='debt'?all.filter(([n,v])=>S.defs.cus.includes(n)||v>.5):all;
+if(B.nz)L=L.filter(x=>Math.abs(x[1])>.5);
+const up=L.reduce((s,x)=>x[1]>0?s+x[1]:s,0),dn=L.reduce((s,x)=>x[1]<0?s-x[1]:s,0);
+return ctl+`<div class=card><h3>${B.m=='cred'?'بستانکاران':B.m=='debt'?'بدهکاران':'همه'} (${L.length} نفر)</h3>${tb(['نام','نقش','وضعیت','مبلغ',''],L.map(x=>tr([H(x[0]),role(x[0]),stt(x[1]),fm(Math.abs(x[1])),`<button style="margin:0;padding:2px 10px" data-n="${H(x[0])}" onclick="B.m='one';B.p=this.dataset.n;render()">صورت‌حساب</button>`])))}<p class=m>جمع طلب من: ${fm(up)} — جمع بدهی من: ${fm(dn)}</p></div>`+CH()};
+
+V.rep=()=>`<div class=card><div class=g>${F('گزارش',`<select onchange="rep=this.value;render()">${[['sum','خلاصه افراد: بار برده و بدهی'],['stm','صورت‌حساب یک نفر'],['hall','گزارش سالن'],['pk','گزارش قارچ‌چین‌ها']].map(([v,l])=>`<option value=${v} ${v==rep?'selected':''}>${l}</option>`).join('')}</select>`)}
+${rep=='hall'?'':F('از تاریخ',`<input value="${R.f}" placeholder="1405/07/01" onchange="R.f=nd(this.value);render()">`)+F('تا تاریخ',`<input value="${R.t}" placeholder="1405/07/30" onchange="R.t=nd(this.value);render()">`)}</div></div>`+RV[rep]();
+RV.sum=()=>`<div class=card><h3>خلاصه افراد</h3>${tb(['نام','وزن برده','مبلغ فروش','دریافتی','وزن خرید از او','مانده'],names().map(nm=>{const l=led(nm,R.f,R.t);let k=0,a=0,rc=0,bk=0;
+l.rr.forEach(x=>{if(x.t=='فروش'){k+=x.kg;a+=x.tot;rc+=x.paid}else if(x.t=='دریافت')rc+=x.tot;else if(x.t=='خرید')bk+=x.kg});
+return tr([H(nm),fm(k),fm(a),fm(rc),fm(bk),sg(l.open+l.rr.reduce((s,x)=>s+x.dl,0))])}))}<p class=m>مانده مثبت: او به من بدهکار است. منفی: من به او بدهکارم.</p></div>`;
+RV.stm=()=>`<div class=card>${F('نام',`<select onchange="R.p=this.value;render()"><option value="">— انتخاب —</option>${names().map(x=>`<option ${x==R.p?'selected':''}>${H(x)}</option>`).join('')}</select>`)}</div>`+ST(R.p,R.f,R.t);
+RV.hall=()=>{const h=R.h||S.halls[0].id;let ck=0,cost=0;S.buys.forEach(b=>{const a=b.al[h];if(a){cost+=a.cost;if(b.k=='c')ck+=a.kg}});
+const w=S.picks.filter(p=>p.h==h).reduce((s,p)=>s+p.tot,0),ss=S.sales.filter(x=>x.h==h),sk=g=>ss.filter(x=>x.g==g).reduce((s,x)=>s+x.kg,0),
+s1=sk(1),s2=sk(2),st=ss.reduce((s,x)=>s+x.tot,0),ex=ck*.25,sold=s1+s2,tc=cost+w,pf=st-tc,avg=sold?st/sold:0,rem=ex-sold;
+const rows=[['کمپوست وارد‌شده (کیلو)',fm(ck)],['موجودی قارچ ۲۵٪ (کیلو)',fm(ex)],['   درجه ۱ (۲۱٪) / فروخته',fm(ck*.21)+' / '+fm(s1)+' ← مانده '+fm(ck*.21-s1)],['   درجه ۲ (۴٪) / فروخته',fm(ck*.04)+' / '+fm(s2)+' ← مانده '+fm(ck*.04-s2)],
+['کل قارچ فروخته (کیلو)',fm(sold)],['مانده تا رسیدن به ۲۵٪ (کیلو)','<b>'+fm(rem)+'</b>'],['جمع فروش',fm(st)],['هزینه خرید و هزینه‌های سالن',fm(cost)],['مزد قارچ‌چین‌ها',fm(w)],['جمع کل هزینه',fm(tc)],
+['سود / زیان تا الان',sg(pf)+(pf>=0?' (سود)':' (زیان)')],['اگر مانده با میانگین قیمت فروش رفت، سود نهایی',avg&&rem>0?sg(pf+rem*avg):'—']];
+return`<div class=card><h3>گزارش سالن</h3>${F('سالن',`<select onchange="R.h=this.value;render()">${S.halls.map(x=>`<option value=${x.id} ${x.id==h?'selected':''}>${x.name}</option>`).join('')}</select>`)}${tb(['شرح','مقدار'],rows.map(tr))}</div>`};
+RV.pk=()=>{const p=S.picks.filter(x=>(!R.f||x.d>=R.f)&&(!R.t||x.d<=R.t)),m={};p.forEach(x=>{const o=m[x.pk]||(m[x.pk]={k:0,a:0,d:new Set});o.k+=x.kg;o.a+=x.tot;o.d.add(x.d)});
+return`<div class=card><h3>گزارش قارچ‌چین‌ها</h3>${tb(['نام','روز کاری','کیلو','مبلغ','مانده مزد (کل)'],Object.keys(m).map(k=>tr([H(k),m[k].d.size,fm(m[k].k),fm(m[k].a),fm(-net(k))])))}</div>
+<div class=card>${tb(['تاریخ','نام','سالن','کیلو','مبلغ'],p.sort((a,b)=>a.d<b.d?-1:1).map(x=>tr([x.d,H(x.pk),hn(x.h),fm(x.kg),fm(x.tot)])))}</div>`};
+
+V.bk=()=>`<div class=card><h3>پشتیبان‌گیری و بازیابی</h3><p class=m>اطلاعات روی همین دستگاه و روی حساب شما ذخیره می‌شود. حتماً مرتب پشتیبان بگیرید.</p>
+<button class=p onclick=exp()>دانلود فایل پشتیبان</button>
+<p class=m>بازیابی از فایل:</p><input type=file accept=".json" onchange="rf(this.files[0])">
+<p class=m>یا متن پشتیبان را اینجا بچسبانید / کپی کنید:</p><textarea id=bt rows=5></textarea>
+<button onclick="$('#bt').value=JSON.stringify(S)">نمایش متن پشتیبان</button> <button onclick="restore($('#bt').value)">بازیابی از متن</button></div>`;
+async function exp(){const j=JSON.stringify(S);try{const d=await window.claude?.use('downloads');if(!d)throw 0;await d.save({filename:'mushroom-backup-'+today().replace(/\//g,'-')+'.json',data:j})}catch(e){V.bk;$('#bt').value=j;toast('متن پشتیبان در کادر زیر آمد؛ آن را کپی و نگه دارید.')}}
+function rf(f){if(f)f.text().then(restore)}
+function restore(t){let o;try{o=JSON.parse(t);if(!o.sales||!o.buys||!o.halls)throw 0}catch(e){return toast('فایل پشتیبان معتبر نیست')}ask('اطلاعات فعلی با پشتیبان جایگزین شود؟',()=>{S=o;mig();save();render()})}
+function mig(){S.defs=S.defs||{sup:[],cus:[],pk:[]};const a=(k,x)=>{if(x&&!S.defs[k].includes(x))S.defs[k].push(x)};
+S.buys.forEach(b=>a('sup',b.pa));S.sales.forEach(b=>a('cus',b.pa));S.picks.forEach(b=>a('pk',b.pk));
+S.pays.forEach(p=>{if(p.pa&&!Object.values(S.defs).some(l=>l.includes(p.pa)))a(p.dr=='in'?'cus':'sup',p.pa)});
+if(!S.v){S.v=2;S.buys.concat(S.sales).forEach(x=>{if(x.ty=='cheque'&&!x.paid)x.paid=x.tot})}
+S.cmp=S.cmp||[];S.defs.item=S.defs.item||[];
+if(S.v<3){S.v=3;S.buys.forEach(b=>{if(!b.it)b.it=b.k=='c'?'کمپوست':b.k=='e'?'هزینه':'خرید متفرقه';a('item',b.it);if(b.k=='c'&&!S.cmp.includes(b.it))S.cmp.push(b.it)});a('item','کمپوست');if(!S.cmp.includes('کمپوست'))S.cmp.push('کمپوست')}}
+const PS=(i,k)=>{const l=k=='all'?names():S.defs[k]||[];return`<select id=${i}><option value="">— انتخاب (از بخش تعریف‌ها) —</option>${l.map(x=>`<option>${H(x)}</option>`).join('')}</select>`};
+const SB=f=>`<button class=p onclick=${f}()>${E?'ذخیره ویرایش':'ثبت'}</button>${E?'<button onclick="E=null;render()">انصراف</button>':''}`;
+function put(a,o){if(E&&E.a==a){const i=S[a].findIndex(x=>x.id==E.id);o.id=E.id;S[a][i]=o;E=null}else S[a].push(o)}
+function ed(a,i){E={a,id:i};tab={buys:'buy',sales:'sale',picks:'pick',pays:'pay'}[a];render();scrollTo(0,0)}
+function fill(){if(!E)return;const o=S[E.a].find(x=>x.id==E.id);if(!o)return;const v=(k,x)=>{const e=$('#'+k);if(e&&x!=null)e.value=x};
+if(E.a=='buys'){v('d',o.d);v('it',o.it);v('pa',o.pa);v('ds',o.ds);v('qt',o.qt??(o.k=='c'?o.kg:1));v('pr',o.pr);v('ty',o.ty);v('cd',o.cd);v('pd',o.ty=='credit'||(o.ty=='cheque'&&o.paid!=o.tot)?o.paid:'');const sh=Object.values(o.al).map(a=>a.kg),ue=sh.some(x=>Math.abs(x-sh[0])>1e-6);S.halls.forEach((h,i)=>{const a=o.al[h.id];if(a){$('#hc'+i).checked=true;if(ue)$('#hk'+i).value=a.kg}});prev()}
+else if(E.a=='sales'){v('d',o.d);v('h',o.h);v('g',o.g);v('pa',o.pa);v('kg',o.kg);v('pr',o.pr);v('ty',o.ty);v('cd',o.cd);v('pd',o.ty=='credit'||(o.ty=='cheque'&&o.paid!=o.tot)?o.paid:'')}
+else if(E.a=='picks'){v('d',o.d);v('pk',o.pk);v('h',o.h);v('kg',o.kg);v('rt',o.rt)}
+else{v('d',o.d);v('dr',o.dr);v('pa',o.pa);v('am',o.am);v('nt',o.nt)}}
+const DL={sup:'تامین‌کنندگان (کسانی که از آن‌ها خرید می‌کنم)',cus:'خریداران قارچ',pk:'قارچ‌چین‌ها'};
+V.def=()=>Object.keys(DL).map(k=>`<div class=card><h3>${DL[k]}</h3><div class=row><input id=nw_${k} placeholder="نام جدید"><button class=p onclick="dadd('${k}')">افزودن</button></div>${tb(['نام','مانده',''],S.defs[k].map(x=>tr([H(x),sg(net(x)),`<button class=x data-n="${H(x)}" onclick="dren(this.dataset.n)">✎</button><button class=x data-n="${H(x)}" onclick="ddel('${k}',this.dataset.n)">✕</button>`])))}</div>`).join('')+IC()+`<div class=card><h3>نام سالن‌ها</h3>${tb(['سالن',''],S.halls.map(h=>tr([H(h.name),`<button class=x onclick="hren('${h.id}')">✎</button>`])))}</div>`;
+function dadd(k){const x=$('#nw_'+k).value.trim();if(!x)return;if(S.defs[k].includes(x))return toast('این نام قبلاً هست');S.defs[k].push(x);save();render()}
+function dren(o){inp('نام جدید',o,v=>{const nn=(v||'').trim();if(!nn||nn==o)return;if(names().includes(nn))return toast('این نام قبلاً هست');
+for(const q of['sup','cus','pk'])S.defs[q]=S.defs[q].map(x=>x==o?nn:x);S.buys.concat(S.sales,S.pays).forEach(x=>{if(x.pa==o)x.pa=nn});S.picks.forEach(x=>{if(x.pk==o)x.pk=nn});save();render()})}
+function ddel(k,o){if(led(o,'','').rr.length)return toast('برای این نام ثبت وجود دارد؛ ابتدا ثبت‌های آن را حذف کنید.');ask('حذف شود؟',()=>{S.defs[k]=S.defs[k].filter(x=>x!=o);save();render()})}
+function hren(i){const h=S.halls.find(x=>x.id==i);inp('نام سالن',h.name,v=>{const nn=(v||'').trim();if(nn){h.name=nn;save();render()}})}
+V.home=()=>{let rc=0,py=0;names().forEach(x=>{const v=net(x);v>0?rc+=v:py-=v});
+const st=S.sales.reduce((s,x)=>s+x.tot,0),sk=S.sales.reduce((s,x)=>s+x.kg,0),cs=S.buys.reduce((s,x)=>s+x.tot,0)+S.picks.reduce((s,x)=>s+x.tot,0);
+const tl=[['کل فروش',fm(st)],['قارچ فروخته (کیلو)',fm(sk)],['کل خرید و هزینه',fm(cs)],['سود / زیان',sg(st-cs)],['طلب من',fm(rc)],['بدهی من',fm(py)]];
+const rows=S.halls.map(h=>{let ck=0,c=0;S.buys.forEach(b=>{const a=b.al[h.id];if(a){c+=a.cost;if(b.k=='c')ck+=a.kg}});
+c+=S.picks.filter(p=>p.h==h.id).reduce((s,p)=>s+p.tot,0);const ss=S.sales.filter(x=>x.h==h.id),sd=ss.reduce((s,x)=>s+x.kg,0),sv=ss.reduce((s,x)=>s+x.tot,0);
+return tr([h.name,fm(ck),fm(ck*.25),fm(sd),fm(ck*.25-sd),sg(sv-c)])});
+return`<div class=tiles>${tl.map(x=>`<div class=tile><span>${x[0]}</span><b>${x[1]}</b></div>`).join('')}</div><div class=card><h3>وضعیت سالن‌ها</h3>${tb(['سالن','کمپوست','موجودی ۲۵٪','فروخته','مانده تا ۲۵٪','سود/زیان'],rows)}</div>`};
+const IC=()=>`<div class=card><h3>کالا و خدمات (خاک، کمپوست، …)</h3><div class=row><input id=nw_item placeholder="نام کالا یا خدمت"><button class=p onclick="dadd('item')">افزودن</button></div>${tb(['نام','کمپوست؟',''],S.defs.item.map(x=>tr([H(x),`<input type=checkbox style="width:auto" ${S.cmp.includes(x)?'checked':''} data-n="${H(x)}" onchange="icmp(this.dataset.n)">`,`<button class=x data-n="${H(x)}" onclick="iren(this.dataset.n)">✎</button><button class=x data-n="${H(x)}" onclick="idel(this.dataset.n)">✕</button>`])))}<p class=m>«کمپوست؟» را فقط برای کالایی تیک بزن که ۲۵٪ قارچ می‌سازد.</p></div>`;
+function icmp(o){S.cmp=S.cmp.includes(o)?S.cmp.filter(x=>x!=o):[...S.cmp,o];save();render()}
+function iren(o){inp('نام جدید',o,v=>{const nn=(v||'').trim();if(!nn||nn==o)return;if(S.defs.item.includes(nn))return toast('این نام قبلاً هست');
+S.defs.item=S.defs.item.map(x=>x==o?nn:x);S.cmp=S.cmp.map(x=>x==o?nn:x);S.buys.forEach(b=>{if(b.it==o)b.it=nn});save();render()})}
+function idel(o){if(S.buys.some(b=>b.it==o))return toast('برای این کالا خرید ثبت شده؛ ابتدا آن خریدها را حذف کنید.');ask('حذف شود؟',()=>{S.defs.item=S.defs.item.filter(x=>x!=o);S.cmp=S.cmp.filter(x=>x!=o);save();render()})}
+function toast(m){let e=$('#ts');if(!e){e=document.createElement('div');e.id='ts';document.body.appendChild(e)}e.textContent=m;e.className='ts on';clearTimeout(toast.t);toast.t=setTimeout(()=>e.className='ts',3800)}
+function dlg(h,ok){const e=document.createElement('div');e.className='ov';e.innerHTML=`<div class=bx>${h}<div class=row><button class=p id=dk>تأیید</button><button id=dc>انصراف</button></div></div>`;document.body.appendChild(e);
+const i=e.querySelector('input'),c=()=>e.remove();e.querySelector('#dc').onclick=c;e.querySelector('#dk').onclick=()=>{const v=i?i.value:null;c();ok(v)};if(i)i.focus()}
+const ask=(m,ok)=>dlg(`<p>${H(m)}</p>`,ok),inp=(m,v,ok)=>dlg(`<p>${H(m)}</p><input value="${H(v)}">`,ok);
+render();init();
+</script></body></html>
